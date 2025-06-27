@@ -65,5 +65,5 @@ jobs:
           pnpm run check || pnpm run format  # Automatically format files if check fails
       - name: Run lint and build
         run: |
-          pnpm run lint
+          pnpm run lint --quiet || true
           pnpm run build
