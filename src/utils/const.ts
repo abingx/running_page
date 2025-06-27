@@ -59,9 +59,9 @@ const USE_ANIMATION_FOR_GRID = false;
 //const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
 //  `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
 const CHINESE_INFO_MESSAGE = (): string =>
-  "当身体到达极限时，意志会带你杀出重围";
+  '当身体到达极限时，意志会带你杀出重围';
 const ENGLISH_INFO_MESSAGE = (): string =>
-  "When the body reaches its limits, the will takes you through.";
+  'When the body reaches its limits, the will takes you through.';
 
 // not support English for now
 const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
