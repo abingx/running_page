@@ -62,23 +62,6 @@ jobs:
       - name: Run Prettier check
         id: prettier-check
         run: |
-          # 先尝试运行检查，失败时设置输出标志
-          pnpm run check || echo "needs_fix=true" >> $GITHUB_OUTPUT
-      - name: Auto fix and commit
-        if: ${{ steps.prettier-check.outputs.needs_fix == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main' }}
-        run: |
-          # 运行修复命令
-          pnpm run format
-          
-          # 配置 Git 用户
-          git config user.name "abing"
-          git config user.email "allin.schroe@gmail.com"
-          
-          # 添加并提交所有更改
-          git add .
-          git commit -m "style: auto fix by prettier" || echo "No changes to commit"
-          
-          # 推送更改（使用 --force 避免因历史不同步而失败）
-          git push --force
-      - name: Run build
-        run: pnpm run build
+          pnpm run check
+          pnpm run lint
+          pnpm run build
