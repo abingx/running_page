@@ -52,19 +52,16 @@ const RICH_TITLE = false;
 // IF you outside China please make sure IS_CHINESE = false
 const IS_CHINESE = true;
 const USE_ANIMATION_FOR_GRID = false;
-// const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
+//const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
 //  const yearStr = year === 'Total' ? '所有' : ` ${year} `;
-//  return '当身体到达极限时，意志会带你杀出重围';
+//  return `我用 App 记录自己跑步 ${yearLength} 年了，下面列表展示的是${yearStr}的数据`;
 //};
 //const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
 //  `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
-
-const CHINESE_INFO_MESSAGE = (): string => {
-  return "当身体到达极限时，意志会带你杀出重围";
-};
-const ENGLISH_INFO_MESSAGE = (): string => {
-  return "When the body reaches its limits, the will takes you through.";
-};
+const CHINESE_INFO_MESSAGE = (): string =>
+  "当身体到达极限时，意志会带你杀出重围";
+const ENGLISH_INFO_MESSAGE = (): string =>
+  "When the body reaches its limits, the will takes you through.";
 
 // not support English for now
 const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
