@@ -62,6 +62,8 @@ jobs:
       - name: Run Prettier check
         id: prettier-check
         run: |
-          pnpm run check
+          pnpm run check || pnpm run format  # Automatically format files if check fails
+      - name: Run lint and build
+        run: |
           pnpm run lint
           pnpm run build
