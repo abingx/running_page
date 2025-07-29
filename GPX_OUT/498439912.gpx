@@ -1,0 +1,37 @@
+<gpx xmlns:ns3="http://www.garmin.com/xmlschemas/TrackPointExtension/v1" xmlns="http://www.topografix.com/GPX/1/1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ns2="http://www.garmin.com/xmlschemas/GpxExtensions/v3" creator="Garmin Connect" version="1.1" xsi:schemaLocation="http://www.topografix.com/GPX/1/1 http://www.topografix.com/GPX/11.xsd">
+  <extensions>
+<distance>5470.0</distance>
+<average_hr>119.0</average_hr>
+<average_speed>2.8759200841219767</average_speed>
+<start_time>2024-03-25T12:49:00+00:00</start_time>
+<end_time>2024-03-25T13:20:42+00:00</end_time>
+<moving_time>0.0</moving_time>
+<elapsed_time>1902.0</elapsed_time>
+</extensions>
+<metadata>
+    <link href="connect.garmin.com">
+      <text>Garmin Connect</text>
+    </link>
+    <time>2024-03-25T12:49:00.000Z</time>
+  </metadata>
+  <trk>
+    <name>东城区 其他</name>
+    <type>running</type>
+    <trkseg>
+      <trkpt lat="39.90820043720304965972900390625" lon="116.3909842260181903839111328125">
+        <ele>0</ele>
+        <time>2024-03-25T12:49:52.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension/>
+        </extensions>
+      </trkpt>
+      <trkpt lat="39.90820043720304965972900390625" lon="116.3909842260181903839111328125">
+        <ele>0</ele>
+        <time>2024-03-25T13:21:34.000Z</time>
+        <extensions>
+          <ns3:TrackPointExtension/>
+        </extensions>
+      </trkpt>
+    </trkseg>
+  </trk>
+</gpx>
