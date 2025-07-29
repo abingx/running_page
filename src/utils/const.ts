@@ -43,7 +43,7 @@ const ROAD_LABEL_DISPLAY = true;
 const PRIVACY_MODE = false;
 // update for now 2024/11/17 the lights on default is false
 //set to `false` if you want to make light off as default, only effect when `PRIVACY_MODE` = false
-const LIGHTS_ON = false;
+const LIGHTS_ON = true;
 //set to `true` if you want to show the 'Elevation Gain' column
 const SHOW_ELEVATION_GAIN = false;
 // richer title for the activity types (like garmin style)
@@ -52,12 +52,16 @@ const RICH_TITLE = false;
 // IF you outside China please make sure IS_CHINESE = false
 const IS_CHINESE = true;
 const USE_ANIMATION_FOR_GRID = false;
-const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
-  const yearStr = year === 'Total' ? '所有' : ` ${year} `;
-  return `我用 App 记录自己跑步 ${yearLength} 年了，下面列表展示的是${yearStr}的数据`;
-};
-const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
-  `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
+//const CHINESE_INFO_MESSAGE = (yearLength: number, year: string): string => {
+//  const yearStr = year === 'Total' ? '所有' : ` ${year} `;
+//  return `我用 App 记录自己跑步 ${yearLength} 年了，下面列表展示的是${yearStr}的数据`;
+//};
+//const ENGLISH_INFO_MESSAGE = (yearLength: number, year: string): string =>
+//  `Running Journey with ${yearLength} Years, the table shows year ${year} data`;
+const CHINESE_INFO_MESSAGE = (): string =>
+  '当身体到达极限时，意志会带你杀出重围';
+const ENGLISH_INFO_MESSAGE = (): string =>
+  'When the body reaches its limits, the will takes you through.';
 
 // not support English for now
 const CHINESE_LOCATION_INFO_MESSAGE_FIRST =
