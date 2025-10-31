@@ -125,7 +125,9 @@ English | [简体中文](https://github.com/yihong0618/running_page/blob/master/
 | [Daniel](https://danielyu316.github.io/running_page) | <https://danielyu316.github.io/running_page/>  | Codoon      |
 | [arthurfsy2](https://github.com/arthurfsy2)          | <https://fsy.4a1801.life>                      | Garmin      |
 | [JMGutiH](https://github.com/JMGutiH)                | <https://jmgutih.github.io/workouts_page/>     | Strava      |
-| [Bolyn](https://run.wbolyn.com)                | <https://run.wbolyn.com>     | Coros      |
+| [Bolyn](https://run.wbolyn.com)                      | <https://run.wbolyn.com>                       | Coros       |
+| [LeiChen](https://github.com/xthirty77)              | <https://xthirty77.github.io/running_page/>    | Coros       |
+| [itrunner](https://itrunner.cn)                      | <https://itrunner.cn>                          | Garmin      |
 
 </details>
 
@@ -166,6 +168,7 @@ English | [简体中文](https://github.com/yihong0618/running_page/blob/master/
 - **[iGPSPORT](#igpsport)**
 - **[Joyrun](#joyrun)**
 - **[Komoot](#komoot)**
+- **[Onelap](#onelap)**
 
 ## Download
 
@@ -886,6 +889,19 @@ python3 run_page/komoot_sync.py 'your komoot email' 'password' --with-gpx
 | `--start-date=YYYY-MM-DD` | Filter tours on or after specified date |
 | `--end-date=YYYY-MM-DD` | Filter tours on or before specified date |
 | `-e`, `--no-poi` | Do not include highlights as POIs |
+
+</details>
+
+### Onelap
+
+<details>
+<summary>Get your Onelap data</summary>
+
+#### Enter the following command in the terminal
+
+```bash
+python3 run_page/onelap_sync.py 'your onelap phone' 'password' --with-fit
+```
 
 </details>
 
