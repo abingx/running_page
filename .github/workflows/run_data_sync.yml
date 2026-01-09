@@ -250,6 +250,12 @@ jobs:
           git commit -m 'update new runs' || echo 'nothing to commit'
           git push || echo 'nothing to push'
 
+      - name: Send running stats to Bark
+        if: env.RUN_TYPE != 'pass'
+        run: |
+          python run_page/bark_notify.py --bark-url ${{ secrets.BARK_PUSH_URL }}
+        continue-on-error: true
+
       - name: Set Output
         id: set_output
         env:
