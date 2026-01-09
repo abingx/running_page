@@ -2,6 +2,10 @@
 """
 Simple script to send weekly/monthly/yearly running stats to Bark.
 Reads data directly from src/static/activities.json (exported from data.db).
+
+local test:
+python run_page/bark_notify.py \
+  --bark-url "https://api.day.app/YOUR_BARK_KEY"
 """
 
 import json
@@ -162,10 +166,10 @@ def generate_message(week_stats: Dict, month_stats: Dict, year_stats: Dict) -> s
 def send_to_bark(bark_url: str, title: str, body: str) -> bool:
     """Send notification to Bark with group and URL parameters."""
     try:
-        # Bark API: GET https://api.day.app/{KEY}/TITLE/BODY?group=GROUP&url=URL
-        # Hardcoded group and url for running stats
+        # Bark API: GET https://api.day.app/{KEY}/TITLE/BODY?group=GROUP&icon=ICON
+        # Hardcoded group and icon for running stats
         group = "Running Page"
-        url = "https://running.allinhub.dpdns.org"
+        icon = "https://raw.githubusercontent.com/yihong0618/running_page/refs/heads/master/public/images/favicon.png"
 
         # Simple encoding - avoid double encoding
         encoded_title = urllib.parse.quote(title, safe="")
@@ -177,8 +181,8 @@ def send_to_bark(bark_url: str, title: str, body: str) -> bool:
         else:
             url_base = f"{bark_url}/{encoded_title}/{encoded_body}"
 
-        # Build query string with group and url
-        params = {"group": group, "url": url}
+        # Build query string with group and icon
+        params = {"group": group, "icon": icon}
         query_string = urllib.parse.urlencode(params)
         final_url = f"{url_base}?{query_string}"
 
