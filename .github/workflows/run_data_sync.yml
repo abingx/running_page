@@ -261,6 +261,12 @@ jobs:
           echo "DATA_CACHE_PREFIX=$DATA_CACHE_PREFIX" >> "$GITHUB_OUTPUT"
           echo "BUILD_GH_PAGES=$BUILD_GH_PAGES" >> "$GITHUB_OUTPUT"
 
+      - name: Bark Notification
+        run: |
+          TITLE_ENCODED=$(python3 -c "import urllib.parse; print(urllib.parse.quote('数据更新已执行'))")
+          BODY_ENCODED=$(python3 -c "import urllib.parse; print(urllib.parse.quote('更新时间：$(date '+%Y-%m-%d %H:%M:%S')'))")
+          curl "https://api.day.app/dzvjx4SKAHvRReFXheZEhU/$TITLE_ENCODED/$BODY_ENCODED?group=RunningPage&icon=https://raw.githubusercontent.com/yihong0618/running_page/master/public/images/favicon.png"
+
   publish_github_pages:
     if: needs.sync.result == 'success' && needs.sync.outputs.BUILD_GH_PAGES == 'true'
     name: Build and publish Github Pages
