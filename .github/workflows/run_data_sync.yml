@@ -263,6 +263,7 @@ jobs:
 
       - name: Bark Notification
         run: |
+          export TZ=Asia/Shanghai
           TITLE_ENCODED=$(python3 -c "import urllib.parse; print(urllib.parse.quote('数据更新已执行'))")
           BODY_ENCODED=$(python3 -c "import urllib.parse; print(urllib.parse.quote('更新时间：$(date '+%Y-%m-%d %H:%M:%S')'))")
           curl "https://api.day.app/dzvjx4SKAHvRReFXheZEhU/$TITLE_ENCODED/$BODY_ENCODED?group=RunningPage&icon=https://raw.githubusercontent.com/yihong0618/running_page/master/public/images/favicon.png"
