@@ -2,6 +2,9 @@
 """
 Fix location problems in the activities database.
 
+Usage:
+    python run_page/fix_location.py (--dry-run) (--limit N)
+
 This script fixes common location-related issues:
 1. Activities with "China" as location that should have more specific location data
 2. Activities with missing location_country that have valid coordinates
@@ -98,15 +101,17 @@ def fix_location_for_activity(session, activity, dry_run=False):
     reason = ""
     new_location = None
 
+    location_country = (activity.location_country or "").strip()
+
     # Case 1: Location is "China" (too generic) - try to get more specific
-    if activity.location_country == "China":
+    if location_country.lower() == "china":
         needs_fix = True
-        reason = "Location is too generic (China)"
+        reason = "Location is too generic (China/china)"
 
     # Case 2: Location is missing but we have coordinates from summary_polyline
-    elif not activity.location_country and activity.summary_polyline:
+    elif location_country == "" and activity.summary_polyline:
         needs_fix = True
-        reason = "Location is missing but coordinates available"
+        reason = "Location is missing/empty but coordinates available"
 
     if not needs_fix:
         return False
@@ -159,12 +164,20 @@ def fix_locations(session, dry_run=False, limit=None):
         Tuple of (fixed_count, total_checked)
     """
     # Find activities that need location fixes
+    # Match:
+    # 1) "China" / "china" (with optional surrounding spaces)
+    # 2) NULL
+    # 3) empty string ""
     query = session.query(Activity).filter(
-        (Activity.location_country == "China")
+        (
+            Activity.location_country.isnot(None)
+            & (Activity.location_country.ilike("china"))
+        )
         | (
             (Activity.location_country.is_(None))
             & (Activity.summary_polyline.isnot(None))
         )
+        | ((Activity.location_country == "") & (Activity.summary_polyline.isnot(None)))
     )
 
     if limit:
@@ -196,7 +209,9 @@ def main():
         description="Fix location problems in activities database"
     )
     parser.add_argument(
-        "--db", default="data.db", help="Path to database file (default: data.db)"
+        "--db",
+        default="run_page/data.db",
+        help="Path to database file (default: run_page/data.db)",
     )
     parser.add_argument(
         "--dry-run",
